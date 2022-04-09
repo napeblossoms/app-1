@@ -10,7 +10,7 @@ class ListsController < ApplicationController
      # 3. データをデータベースに保存するためのsaveメソッド実行
      list.save
 
-      redirect_to list_path(list.id)
+     redirect_to list_path(list.id)
   end
 
   def index
@@ -19,6 +19,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+   
   end
 
   def edit
@@ -34,6 +35,6 @@ class ListsController < ApplicationController
   private
   # ストロングパラメータ
   def list_params
-    params.require(:list).permit(:title, :body)
+    params.require(:list).permit(:title, :body, :image)
   end
 end
